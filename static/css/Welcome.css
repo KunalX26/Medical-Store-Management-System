@@ -1,0 +1,332 @@
+/*
+ * Welcome.css – Professional UI for MediMap
+ * Blue-white medical theme with hidden scrollbar, fixed footer, and smooth animations.
+ */
+
+/* --------------------
+   0. Animations
+   -------------------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   1. Global Styles
+   -------------------- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    /* ✨ Subtle background so transparency shows */
+    background: linear-gradient(135deg, #e6f4ff 0%, #ffffff 100%);
+    font-family: 'Poppins', 'Inter', sans-serif;
+    color: #2f3a4a;
+    line-height: 1.7;
+    scroll-behavior: smooth;
+
+    /* Hide scrollbar but allow scroll */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: scroll;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --------------------
+   2. Navbar
+   -------------------- */
+.navbar {
+    background-color: #2a9ed7 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand img {
+    height: 32px;
+    transition: transform 0.2s ease;
+}
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #ffffff !important;
+    transition: opacity 0.3s ease;
+}
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* --------------------
+   3. Search Section
+   -------------------- */
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    text-align: center;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.search-section form {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    /* ✅ Transparent glass effect */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    padding: 1.5rem 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.search-section form:hover {
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+.search-section label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #334155;
+}
+
+.search-section input[type="text"] {
+    flex: 1;
+    width: 650px;
+    padding: 0.625rem 0.875rem;
+    border: 1.5px solid #009688;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: #1e293b;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.search-section input[type="text"]:focus {
+    border-color: #00796b;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 6px rgba(0, 150, 136, 0.3);
+    outline: none;
+}
+
+.search-section button {
+    background: rgba(0, 150, 136, 0.9);
+    color: #fff;
+    border: none;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-section button:hover {
+    background: rgba(0, 121, 107, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 121, 107, 0.3);
+}
+.search-section button:active {
+    transform: translateY(0);
+}
+
+/* --------------------
+   4. Results Table
+   -------------------- */
+.results-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.results-table th {
+    background-color: #009688;
+    color: #fff;
+    padding: 14px;
+    text-align: left;
+    font-size: 1.05rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.results-table td {
+    vertical-align: top;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+}
+.results-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.results-table tr:hover {
+    background-color: #eefaf8;
+    transition: background-color 0.3s ease;
+}
+
+.store-name, .medicine-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.details {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --------------------
+   5. Message Block
+   -------------------- */
+.message {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    width: 80%;
+    max-width: 600px;
+    border: 1px solid #e0e0e0;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.message h2 {
+    color: #d9534f;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* --------------------
+   6. Hero Section
+   -------------------- */
+.hero {
+    width: 90%;
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+.hero h1 span {
+    color: #009688;
+    font-weight: 900;
+}
+.hero p {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 25px;
+    text-align: left;
+    padding: 0 15px;
+}
+.hero p strong {
+    color: #009688;
+    font-weight: 600;
+}
+
+/* --------------------
+   7. Footer
+   -------------------- */
+.footer {
+    background-color: #2a9ed7;
+    color: #fff;
+    text-align: center;
+    padding: 16px 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    width: 100%;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    border-top: 2px solid #ffffff33;
+    letter-spacing: 0.3px;
+    animation: fadeInUp 0.8s ease;
+    margin-top: auto;
+}
+.footer p {
+    margin: 0;
+    padding: 2px 0;
+}
+
+/* --------------------
+   8. Responsiveness
+   -------------------- */
+@media (max-width: 768px) {
+    .results-container, .hero, .search-section form {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .search-section input[type="text"] {
+        width: 180px;
+    }
+
+    .results-table, .results-table tr, .results-table td, .results-table th {
+        display: block;
+        width: 100%;
+    }
+
+    .results-table th {
+        border-radius: 0;
+        text-align: center;
+    }
+
+    .results-table td {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 12px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p, .details {
+        font-size: 1rem;
+    }
+}

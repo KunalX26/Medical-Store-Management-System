@@ -1,0 +1,121 @@
+{% extends 'MedicineRegTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/MedicineReg.css" rel="stylesheet" type="text/css" />
+
+<div class="registration-container">
+    <h1>Medicine Registration</h1>
+
+    <form id="medicineForm" method="POST" action="medicine_reg">
+        <div class="form-group">
+            <label for="Txt1">Medicine Name</label>
+            <input type="text" name="T1" id="Txt1" />
+            <small class="error-message" id="nameError"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="Txt2">Medicine Type</label>
+            <input type="text" name="T2" id="Txt2" />
+            <small class="error-message" id="typeError"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="Txt3">Medicine Company</label>
+            <input type="text" name="T3" id="Txt3" />
+            <small class="error-message" id="companyError"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="Txt4">Medicine Licence No.</label>
+            <input type="text" name="T4" id="Txt4" />
+            <small class="error-message" id="licenceError"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="Txt5">Medicine Unit Price (₹)</label>
+            <input type="text" name="T5" id="Txt5" />
+            <small class="error-message" id="priceError"></small>
+        </div>
+
+        <div class="form-group">
+            <label for="Txt6">Medicine Description</label>
+            <input type="text" name="T6" id="Txt6" />
+            <small class="error-message" id="descError"></small>
+        </div>
+
+        <input type="submit" name="B1" id="Btn1" value="Register" />
+    </form>
+
+    {% if vgt %}
+        <p class="success-message">{{ vgt }}</p>
+    {% endif %}
+</div>
+
+<script>
+document.getElementById('medicineForm').addEventListener('submit', function(e) {
+    let isValid = true;
+
+    // Clear previous errors
+    document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+    // Validation patterns
+    const lettersPattern = /^[A-Za-z\s]+$/;
+    const numberPattern = /^\d+(\.\d{1,2})?$/; // Digits + optional 1–2 decimal places
+
+    // Medicine Name
+    const name = document.getElementById('Txt1').value.trim();
+    if (name === '') {
+        document.getElementById('nameError').textContent = 'Medicine name cannot be empty.';
+        isValid = false;
+    } else if (!lettersPattern.test(name)) {
+        document.getElementById('nameError').textContent = 'Medicine name should contain only letters and spaces.';
+        isValid = false;
+    }
+
+    // Medicine Type
+    const type = document.getElementById('Txt2').value.trim();
+    if (type === '') {
+        document.getElementById('typeError').textContent = 'Medicine type cannot be empty.';
+        isValid = false;
+    }
+
+    // Company
+    const company = document.getElementById('Txt3').value.trim();
+    if (company === '') {
+        document.getElementById('companyError').textContent = 'Company cannot be empty.';
+        isValid = false;
+    } else if (!lettersPattern.test(company)) {
+        document.getElementById('companyError').textContent = 'Company name should contain only letters and spaces.';
+        isValid = false;
+    }
+
+    // Licence
+    const licence = document.getElementById('Txt4').value.trim();
+    if (licence === '') {
+        document.getElementById('licenceError').textContent = 'Licence number cannot be empty.';
+        isValid = false;
+    }
+
+    // ✅ Price (numbers only, allows decimals)
+    const price = document.getElementById('Txt5').value.trim();
+    if (price === '') {
+        document.getElementById('priceError').textContent = 'Price cannot be empty.';
+        isValid = false;
+    } else if (!numberPattern.test(price)) {
+        document.getElementById('priceError').textContent = 'Price must be a valid number (e.g., 50 or 49.99).';
+        isValid = false;
+    }
+
+    // Description
+    const desc = document.getElementById('Txt6').value.trim();
+    if (desc === '') {
+        document.getElementById('descError').textContent = 'Description cannot be empty.';
+        isValid = false;
+    }
+
+    if (!isValid) e.preventDefault();
+});
+</script>
+
+
+{% endblock %}

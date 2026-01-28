@@ -1,0 +1,123 @@
+/*
+ * DeleteMedicine1.css - Confirmation message page after medicine deletion.
+ * Matches the same design as DeleteMedicine.css for a seamless experience.
+ */
+
+/* --------------------
+   1. Base Layout
+   -------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: #f7f9fc;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+.full-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --------------------
+   2. Confirmation Box
+   -------------------- */
+.delete-confirm-box {
+    background: #fff;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 50px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    border: 1px solid #eee;
+    animation: fade-in-scale 0.7s ease-out;
+}
+
+/* --------------------
+   3. Headings & Message
+   -------------------- */
+.delete-confirm-box h1 {
+    font-size: 2.2rem;
+    color: #b71c1c;
+    font-weight: 800;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #d32f2f;
+    padding-bottom: 10px;
+}
+
+.delete-confirm-box .message {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #00796B;
+    background: #e0f2f1;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #b2dfdb;
+    margin-bottom: 30px;
+}
+
+/* --------------------
+   4. Buttons
+   -------------------- */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.continue-btn {
+    background-color: #00796B;
+    color: white;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.continue-btn:hover {
+    background-color: #00695C;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 121, 107, 0.35);
+}
+
+/* --------------------
+   5. Animation
+   -------------------- */
+@keyframes fade-in-scale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --------------------
+   6. Responsive
+   -------------------- */
+@media (max-width: 600px) {
+    .delete-confirm-box {
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+
+    .delete-confirm-box h1 {
+        font-size: 1.8rem;
+    }
+
+    .continue-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}

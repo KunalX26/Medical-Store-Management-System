@@ -1,0 +1,29 @@
+{% extends 'AdminTemp.html' %}
+{% block m1 %}
+<link href="../static/css/AdminHome.css" rel="stylesheet" type="text/css" />
+
+<div class="full-page">
+    <div class="admin-box">
+        <h1>Admin Dashboard</h1>
+
+        {% if data %}
+            {% if photo=='no' %}
+      <p> <button onclick="location.href='adminphoto'">Upload Photo</button> </p>
+    {% else %}
+    <img src="../static/images/{{ photo }}" width="100" height="100" />
+    <br/>
+    <p><button onclick="location.href='change_adminphoto'">Delete Photo</button> </p>
+    {% endif %}
+            <h3>{{ data[0] }}</h3>
+            <p><b>Address:</b> {{ data[1] }}</p>
+            <p><b>Contact:</b> {{ data[2] }}</p>
+            <p><b>Email:</b> {{ data[3] }}</p>
+
+        {% elif msg %}
+            <h3>{{ msg }}</h3>
+        {% endif %}
+
+        <button onclick="location.href='admin_profile'">Edit Profile</button>
+    </div>
+</div>
+{% endblock %}

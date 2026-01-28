@@ -1,0 +1,170 @@
+/* * AdminList.css - Professional styling for the Admin List page (e.g., All Admins).
+ * Uses a responsive, card-based, multi-column layout without Flexbox.
+ */
+
+/* --------------------
+   0. Animations
+   -------------------- */
+@keyframes fade-in-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Increased slide for a better visual pop */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   1. Global & Header
+   -------------------- */
+body, html {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f7f9fc; /* Light, soft background */
+
+    /* Hide scrollbar but keep scrolling enabled */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: scroll; /* ensure vertical scroll works */
+}
+
+/* Hide scrollbar in WebKit browsers (Chrome, Safari, Opera) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+h1 {
+    font-size: 2.8rem; /* Slightly larger title */
+    color: #1f3a4e;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 40px; /* Increased margin-top */
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid #009688; /* Slightly thicker brand accent line */
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cleanup: Removed the generic h3 rule as it was redundant/vague */
+
+/* Container for all cards to manage overall spacing and alignment */
+.admin-list-container {
+    padding: 20px 2%;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1300px; /* Introduce a max-width for very large screens */
+}
+
+/* --------------------
+   2. Individual Admin Card Styling
+   -------------------- */
+.admin-record {
+    /* Inline-block for side-by-side layout (2 columns on desktop) */
+    display: inline-block;
+    vertical-align: top;
+
+    width: 48%; /* Adjusted to 48% for better gap management */
+    max-width: 550px;
+    margin: 15px 1%;
+
+    text-align: left;
+    padding: 30px; /* Increased internal padding */
+    background-color: #ffffff;
+    border-radius: 16px; /* Increased radius for a softer look */
+
+    /* Elegant Shadow Refined: Multi-layered, softer shadow */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eee; /* Very subtle border */
+    /* Smoother transition timing */
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.4s;
+
+    /* Animation */
+    animation: fade-in-slide-up 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    opacity: 0;
+    /* Staggering the animation start */
+    animation-delay: calc(var(--animation-order) * 0.1s);
+}
+
+.admin-record:hover {
+    transform: translateY(-8px); /* More pronounced lift effect on hover */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Admin Name Heading */
+.admin-record h3 {
+    font-size: 1.45rem; /* Larger name */
+    color: #1f3a4e; /* Deeper color for prominence */
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd; /* Thin, soft divider */
+    text-align: left;
+}
+
+.admin-record h3 u {
+    text-decoration: none;
+}
+
+/* Data Paragraph */
+.admin-record p {
+    font-size: 1rem;
+    color: #444; /* Darker text for better contrast */
+    line-height: 2.0; /* Increased line height for excellent readability */
+    margin: 0;
+}
+
+/* Data Labels (e.g., Address, Contact) */
+.admin-record b {
+    color: #777; /* Softer, muted color for labels */
+    font-weight: 600;
+    display: inline-block;
+    min-width: 80px; /* Slightly wider min-width for better alignment */
+    margin-right: 5px;
+}
+
+/* No Admins Found Message - Specific Styling */
+.admin-list-container > h3 {
+    text-align: center;
+    color: #999;
+    margin-top: 50px;
+    font-size: 1.2rem;
+}
+
+/* --------------------
+   3. Responsiveness
+   -------------------- */
+
+/* Tablet (One Column) */
+@media (max-width: 950px) { /* Changed breakpoint slightly */
+    .admin-record {
+        width: 90%;
+        margin: 20px auto; /* Increased margin for more separation */
+        max-width: 650px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+        margin-top: 25px;
+        margin-bottom: 35px;
+    }
+    .admin-record {
+        padding: 20px;
+        border-radius: 10px;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        box-shadow: none; /* Remove shadow on mobile for performance and flat design */
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+}

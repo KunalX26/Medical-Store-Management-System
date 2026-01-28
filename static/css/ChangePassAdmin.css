@@ -1,0 +1,191 @@
+/*
+ * ChangePassAdmin.css - Teal-themed style for Admin password change page.
+ * Matches other admin/medical modules for design consistency.
+ */
+
+/* --------------------
+   1. Base Setup
+   -------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff);
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* --------------------
+   2. Page Layout
+   -------------------- */
+.page-wrapper {
+    display: block;
+    width: 100%;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+.change-pass-box {
+    display: inline-block;
+    background: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    padding: 40px 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    border: 1px solid #d0dfe0;
+    text-align: left;
+    animation: fade-in-up 0.8s ease forwards;
+}
+
+/* --------------------
+   3. Headings
+   -------------------- */
+.change-pass-box h1 {
+    font-size: 2.2rem;
+    color: #00695c;
+    font-weight: 800;
+    border-bottom: 3px solid #26a69a;
+    padding-bottom: 15px;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+/* --------------------
+   4. Form Styling
+   -------------------- */
+form p {
+    font-weight: 600;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #b0bec5;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    margin-top: 6px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #26a69a;
+    box-shadow: 0 0 8px rgba(38, 166, 154, 0.35);
+    outline: none;
+}
+
+/* --------------------
+   5. Buttons
+   -------------------- */
+form input[type="submit"] {
+    background-color: #26a69a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    display: block;
+    margin: 25px auto 0 auto;
+}
+
+form input[type="submit"]:hover {
+    background-color: #00897b;
+    box-shadow: 0 8px 18px rgba(38, 166, 154, 0.4);
+    transform: translateY(-3px);
+}
+
+form input[type="submit"]:active {
+    background-color: #00695c;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------
+   6. Home Button
+   -------------------- */
+.home-button-container {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.home-button-container button {
+    background-color: #546e7a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 26px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.home-button-container button:hover {
+    background-color: #37474f;
+    transform: translateY(-2px);
+}
+
+.home-button-container button:active {
+    background-color: #263238;
+}
+
+/* --------------------
+   7. Messages
+   -------------------- */
+.message {
+    color: #d32f2f;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    background: rgba(255, 205, 210, 0.25);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* --------------------
+   8. Animation
+   -------------------- */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   9. Responsive Design
+   -------------------- */
+@media (max-width: 600px) {
+    .change-pass-box {
+        padding: 25px 20px;
+        border-radius: 12px;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .change-pass-box h1 {
+        font-size: 1.8rem;
+    }
+
+    form input[type="submit"],
+    .home-button-container button {
+        width: 100%;
+    }
+}

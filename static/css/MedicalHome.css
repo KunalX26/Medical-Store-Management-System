@@ -1,0 +1,194 @@
+/*
+ * MedicalHome.css - Clean, centered Medical Store dashboard styling
+ * Scrollable version (for longer content)
+ */
+
+/* --------------------
+   1. Reset & Base
+   -------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-y: auto; /* ✅ allow vertical scroll */
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #e3f2f9, #ffffff);
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth; /* smooth scrolling */
+}
+
+/* --------------------
+   2. Full Page Container
+   -------------------- */
+.full-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* ✅ align from top */
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 60px 0; /* ✅ space around content */
+}
+
+/* --------------------
+   3. Medical Box (Main Card)
+   -------------------- */
+.medical-box {
+    background: #ffffff;
+    padding: 45px 50px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #dce6eb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fade-in-up 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin-bottom: 60px; /* ✅ ensures space at bottom when scrolling */
+}
+
+/* --------------------
+   4. Headings & Text
+   -------------------- */
+.medical-box h1 {
+    font-size: 2.2rem;
+    color: #1e3a5f;
+    font-weight: 800;
+    border-bottom: 3px solid #00a8cc;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.medical-box h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #00897b;
+    margin: 12px 0 8px 0;
+    width: 100%;
+}
+
+.medical-box p {
+    font-size: 1rem;
+    margin: 6px 0;
+    color: #444;
+    text-align: center;
+    width: 100%;
+}
+
+/* --------------------
+   5. Image Styling
+   -------------------- */
+.store-photo {
+    border-radius: 50%;
+    border: 3px solid #00a8cc;
+    margin: 15px 0 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 168, 204, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.store-photo:hover {
+    transform: scale(1.05);
+}
+
+/* --------------------
+   6. Definition List (Details)
+   -------------------- */
+.info-list {
+    text-align: left;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 400px;
+}
+
+.info-list dt {
+    font-weight: 600;
+    color: #006064;
+    margin-top: 10px;
+}
+
+.info-list dd {
+    margin-left: 0;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-left: 3px solid #00bcd4;
+    color: #333;
+}
+
+/* --------------------
+   7. Buttons
+   -------------------- */
+button {
+    margin-top: 25px;
+    background-color: #00bcd4;
+    color: #ffffff;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #0097a7;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.4);
+}
+
+button:active {
+    background-color: #00796b;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:focus-visible {
+    outline: 3px solid #80deea;
+    outline-offset: 2px;
+}
+
+/* --------------------
+   8. Animation
+   -------------------- */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   9. Responsiveness
+   -------------------- */
+@media (max-width: 600px) {
+    .medical-box {
+        width: 90%;
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+    .medical-box h1 {
+        font-size: 1.8rem;
+    }
+    .medical-box h3 {
+        font-size: 1.1rem;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+    .store-photo {
+        width: 80px;
+        height: 80px;
+    }
+}

@@ -1,0 +1,164 @@
+/*
+ * DeleteMedical.css - Elegant and consistent styling for the Delete Medical Store page.
+ * Matches the MedicalReg, MedicalList, and EditMedical themes.
+ * Features a soft warning tone for destructive actions.
+ */
+
+/* --------------------
+   1. Global Styles
+   -------------------- */
+body, html {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+
+    /* Remove scrolling and hide scrollbar */
+    overflow: hidden; /* Disables scrolling completely */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar in WebKit browsers (Chrome, Safari, Opera) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* --------------------
+   2. Header
+   -------------------- */
+h1 {
+    text-align: center;
+    color: #b71c1c; /* Deep red for delete emphasis */
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid #d32f2f;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --------------------
+   3. Card Container
+   -------------------- */
+.delete-container {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eee;
+    animation: fade-in-slide-up 0.6s ease forwards;
+    text-align: left;
+}
+
+/* --------------------
+   4. Record Info
+   -------------------- */
+.delete-container h3 {
+    font-size: 1.5rem;
+    color: #1f3a4e;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.delete-container p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.delete-container b {
+    color: #777;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 100px;
+}
+
+/* --------------------
+   5. Buttons
+   -------------------- */
+button {
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    border: none;
+}
+
+/* Delete Button (Red Theme) */
+form button {
+    background-color: #d32f2f;
+    color: #fff;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #b71c1c;
+    box-shadow: 0 6px 18px rgba(211, 47, 47, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Back Button (Teal Theme) */
+a button {
+    background-color: #00796B;
+    color: #fff;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+a button:hover {
+    background-color: #00695C;
+    box-shadow: 0 6px 18px rgba(0, 121, 107, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --------------------
+   6. Animation
+   -------------------- */
+@keyframes fade-in-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   7. Responsiveness
+   -------------------- */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+        margin-top: 25px;
+    }
+
+    .delete-container {
+        padding: 25px 20px;
+        border-radius: 12px;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}

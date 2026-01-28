@@ -1,0 +1,18 @@
+{% extends 'EditMedical1Temp.html' %}
+{% block m1 %}
+
+<link href="../static/css/EditMedical1.css" rel="stylesheet" type="text/css" />
+
+<div class="confirmation-container">
+    <h1>Edit & Save</h1>
+
+    {% if msg %}
+        <h2>{{ msg }}</h2>
+    {% endif %}
+
+    <a href="show_medicals">
+        <button type="button">Continue</button>
+    </a>
+</div>
+
+{% endblock %}

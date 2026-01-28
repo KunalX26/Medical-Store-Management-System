@@ -1,0 +1,202 @@
+/*
+ * AdminHome.css - Enhanced Admin Dashboard styling (with photo + links)
+ * Clean, centered, non-scrollable dashboard layout.
+ */
+
+/* --------------------
+   1. Reset & Base
+   -------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f0f4f7, #ffffff);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --------------------
+   2. Full Page Container
+   -------------------- */
+.full-page {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    transform: translateY(-6%);
+}
+
+/* --------------------
+   3. Admin Box (Main Card)
+   -------------------- */
+.admin-box {
+    background: #ffffff;
+    padding: 45px 50px;
+    width: 90%;
+    max-width: 550px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fade-in-up 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --------------------
+   4. Headings & Text
+   -------------------- */
+.admin-box h1 {
+    font-size: 2.2rem;
+    color: #1f3a4e;
+    font-weight: 800;
+    border-bottom: 3px solid #009688;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.admin-box h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #00796B;
+    margin: 12px 0 8px 0;
+    width: 100%;
+}
+
+.admin-box p {
+    font-size: 1rem;
+    margin: 6px 0;
+    color: #444;
+    text-align: center;
+    width: 100%;
+}
+
+.admin-box b {
+    color: #555;
+    font-weight: 600;
+}
+
+/* --------------------
+   5. Image Styling
+   -------------------- */
+.admin-box img {
+    border-radius: 50%;
+    border: 3px solid #009688;
+    margin: 15px 0 10px 0;
+    box-shadow: 0 4px 10px rgba(0, 150, 136, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.admin-box img:hover {
+    transform: scale(1.05);
+}
+
+/* --------------------
+   6. Links (Upload / Change Photo)
+   -------------------- */
+.admin-box a {
+    color: #009688;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.admin-box a:hover,
+.admin-box a:focus {
+    color: #00695C;
+    border-bottom: 2px solid #00695C;
+    text-decoration: none;
+}
+
+.admin-box a:active {
+    color: #004D40;
+}
+
+
+/* --------------------
+   7. Button Styling
+   -------------------- */
+button {
+    margin-top: 25px;
+    background-color: #009688;
+    color: #ffffff;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #007a6e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 150, 136, 0.4);
+}
+
+button:active {
+    background-color: #00695C;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------
+   8. Animation
+   -------------------- */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   9. Responsiveness
+   -------------------- */
+@media (max-height: 600px) {
+    .full-page {
+        transform: translateY(-3%);
+    }
+    .admin-box {
+        transform: scale(0.9);
+        padding: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .full-page {
+        transform: none;
+    }
+    .admin-box {
+        width: 90%;
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+    .admin-box h1 {
+        font-size: 1.8rem;
+    }
+    .admin-box h3 {
+        font-size: 1.1rem;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+    .admin-box img {
+        width: 80px;
+        height: 80px;
+    }
+}

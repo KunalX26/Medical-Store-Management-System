@@ -1,0 +1,128 @@
+{% extends 'EditMedicineTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/EditMedicine.css" rel="stylesheet" type="text/css" />
+
+<div class="edit-medicine-container">
+    <h1>Edit & Save</h1>
+
+    {% if vgt %}
+    <form id="editMedicineForm" method="post" action="edit_medicine1">
+        <input type="hidden" value="{{vgt[0]}}" name="T0" />
+
+        <p>Medicine Name
+            <input type="text" id="Txt1" value="{{vgt[1]}}" name="T1" />
+            <small class="error-message" id="nameError"></small>
+        </p>
+
+        <p>Medicine Type
+            <input type="text" id="Txt2" value="{{vgt[2]}}" name="T2" />
+            <small class="error-message" id="typeError"></small>
+        </p>
+
+        <p>Medicine Company
+            <input type="text" id="Txt3" value="{{vgt[3]}}" name="T3" />
+            <small class="error-message" id="companyError"></small>
+        </p>
+
+        <p>Medicine Licence No.
+            <input type="text" id="Txt4" value="{{vgt[4]}}" name="T4" />
+            <small class="error-message" id="licenceError"></small>
+        </p>
+
+        <p>Medicine Unit Price (₹)
+            <input type="text" id="Txt5" value="{{vgt[5]}}" name="T5" />
+            <small class="error-message" id="priceError"></small>
+        </p>
+
+        <p>Medicine Description
+            <input type="text" id="Txt6" value="{{vgt[6]}}" name="T6" />
+            <small class="error-message" id="descError"></small>
+        </p>
+
+        <!-- ✅ Centered Save Button -->
+        <div class="save-button-container">
+            <button type="submit" class="save-btn">Save Changes</button>
+        </div>
+    </form>
+    {% endif %}
+
+    <!-- ✅ Centered Back Button at Bottom -->
+    <div class="back-button-container">
+        <a href="show_medicines">
+            <button type="button" class="back-btn">Back</button>
+        </a>
+    </div>
+</div>
+
+<!-- ✅ JavaScript Validation -->
+<script>
+document.getElementById('editMedicineForm').addEventListener('submit', function(e) {
+    let isValid = true;
+
+    // Clear old error messages
+    document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+
+    // Regex patterns
+    const lettersPattern = /^[A-Za-z\s]+$/;
+    const numberPattern = /^\d+(\.\d{1,2})?$/; // numbers + optional decimal
+
+    // Medicine Name
+    const name = document.getElementById('Txt1').value.trim();
+    if (name === '') {
+        document.getElementById('nameError').textContent = 'Medicine name cannot be empty.';
+        isValid = false;
+    } else if (!lettersPattern.test(name)) {
+        document.getElementById('nameError').textContent = 'Medicine name should contain only letters and spaces.';
+        isValid = false;
+    }
+
+    // Medicine Type
+    const type = document.getElementById('Txt2').value.trim();
+    if (type === '') {
+        document.getElementById('typeError').textContent = 'Medicine type cannot be empty.';
+        isValid = false;
+    } else if (!lettersPattern.test(type)) {
+        document.getElementById('typeError').textContent = 'Medicine type should contain only letters and spaces.';
+        isValid = false;
+    }
+
+    // Medicine Company
+    const company = document.getElementById('Txt3').value.trim();
+    if (company === '') {
+        document.getElementById('companyError').textContent = 'Company name cannot be empty.';
+        isValid = false;
+    } else if (!lettersPattern.test(company)) {
+        document.getElementById('companyError').textContent = 'Company name should contain only letters and spaces.';
+        isValid = false;
+    }
+
+    // Licence
+    const licence = document.getElementById('Txt4').value.trim();
+    if (licence === '') {
+        document.getElementById('licenceError').textContent = 'Licence number cannot be empty.';
+        isValid = false;
+    }
+
+    // Price (numbers only)
+    const price = document.getElementById('Txt5').value.trim();
+    if (price === '') {
+        document.getElementById('priceError').textContent = 'Price cannot be empty.';
+        isValid = false;
+    } else if (!numberPattern.test(price)) {
+        document.getElementById('priceError').textContent = 'Price must be a valid number (e.g., 50 or 49.99).';
+        isValid = false;
+    }
+
+    // Description
+    const desc = document.getElementById('Txt6').value.trim();
+    if (desc === '') {
+        document.getElementById('descError').textContent = 'Description cannot be empty.';
+        isValid = false;
+    }
+
+    if (!isValid) e.preventDefault();
+});
+</script>
+
+{% endblock %}

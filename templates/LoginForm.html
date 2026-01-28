@@ -1,0 +1,60 @@
+{% extends 'LoginTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/LoginForm.css" rel="stylesheet" type="text/css" />
+
+<div class="full-page">
+    <div class="login-box">
+        <h1>Login Portal</h1>
+        <p class="note">
+            Only <strong>Admin Users</strong> and <strong>Medical Store Owners</strong> are authorized to log in.
+        </p>
+
+        <form id="loginForm" method="post" action="login">
+            <p>
+                <label>Email:</label>
+                <input type="text" name="T1" id="email" required />
+                <small class="error-message" id="emailError"></small>
+            </p>
+            <p>
+                <label>Password:</label>
+                <input type="password" name="T2" id="password" required />
+                <small class="error-message" id="passwordError"></small>
+            </p>
+            <div class="button-wrap">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+
+        {% if msg %}
+            <p class="server-message">{{ msg }}</p>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    let isValid = true;
+
+    document.querySelectorAll(".error-message").forEach(el => el.textContent = "");
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+
+    if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Enter a valid email address.";
+        isValid = false;
+    }
+
+    if (password.length < 4) {
+        document.getElementById("passwordError").textContent = "Password must be at least 4 characters.";
+        isValid = false;
+    }
+
+    if (!isValid) e.preventDefault();
+});
+</script>
+
+{% endblock %}

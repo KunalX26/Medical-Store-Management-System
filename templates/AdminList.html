@@ -1,0 +1,25 @@
+{% extends 'AdminListTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/AdminList.css" rel="stylesheet" type="text/css" />
+
+<h1>All Admins</h1>
+<div class="admin-list-container">
+{% if vgt %}
+    {% for d in vgt %}
+        <div class="admin-record" style="--animation-order: {{ loop.index0 }}">
+            <h3><u>{{d[0]}}</u></h3>
+            <p>
+                <b>Address</b> : {{d[1]}} <br/>
+                <b>Contact</b> : {{d[2]}} <br/>
+                <b>Email</b> : {{d[3]}}
+            </p>
+        </div>
+    {% endfor %}
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+</div>
+
+{% endblock %}

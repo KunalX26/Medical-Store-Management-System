@@ -1,0 +1,160 @@
+/*
+ * EditMedical.css - Clean, teal-themed styling for the "Edit & Save" page.
+ * Matches the visual design of MedicalList.css and MedicalReg.css.
+ */
+
+/* --------------------
+   1. Global Styles
+   -------------------- */
+body, html {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+
+    /* Hide scrollbar but keep scrolling functional */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: scroll; /* Keep scroll behavior active */
+}
+
+/* Hide scrollbar in WebKit browsers (Chrome, Safari, Opera) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* --------------------
+   2. Header
+   -------------------- */
+h1 {
+    text-align: center;
+    color: #1f3a4e;
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid #00796B; /* Medical teal accent */
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --------------------
+   3. Form Container
+   -------------------- */
+form {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eee;
+    animation: fade-in-slide-up 0.6s ease forwards;
+}
+
+/* --------------------
+   4. Form Fields
+   -------------------- */
+form p {
+    font-size: 1rem;
+    margin-bottom: 18px;
+    color: #444;
+    font-weight: 600;
+}
+
+form p input[type="text"] {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form p input[type="text"]:focus {
+    border-color: #00796B;
+    box-shadow: 0 0 6px rgba(0, 121, 107, 0.3);
+    outline: none;
+}
+
+form p input[readonly] {
+    background-color: #f3f3f3;
+    cursor: not-allowed;
+}
+
+/* --------------------
+   5. Buttons
+   -------------------- */
+button {
+    background-color: #00796B;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #00695C;
+    box-shadow: 0 6px 18px rgba(0, 121, 107, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Back button container */
+h3 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+h3 a button {
+    background-color: #555;
+}
+
+h3 a button:hover {
+    background-color: #333;
+}
+
+/* --------------------
+   6. Animation
+   -------------------- */
+@keyframes fade-in-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   7. Responsive Design
+   -------------------- */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+        margin-top: 25px;
+    }
+    form {
+        padding: 25px 20px;
+        border-radius: 12px;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}

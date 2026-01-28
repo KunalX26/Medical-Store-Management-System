@@ -1,0 +1,33 @@
+{% extends 'ChangePassAdminTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/ChangePassAdmin.css" rel="stylesheet" type="text/css" />
+
+<div class="page-wrapper">
+  <div class="change-pass-box">
+    <h1>Change Password (Admin)</h1>
+    <form method="post" action="change_pass_admin">
+      <p>Current Password
+        <input type="password" name="T1" id="Txt1">
+      </p>
+      <p>New Password
+        <input type="password" name="T2" id="Txt2">
+      </p>
+      <p>Confirm Password
+        <input type="password" name="T3" id="Txt3">
+      </p>
+      <input type="submit" value="Change Password">
+    </form>
+
+    <div class="home-button-container">
+      <a href="adminhome">
+        <button>Home</button>
+      </a>
+    </div>
+
+    {% if msg %}
+      <div class="message">{{ msg }}</div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

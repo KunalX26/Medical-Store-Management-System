@@ -1,0 +1,48 @@
+{% extends 'MedicalTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/MedicalHome.css" rel="stylesheet" type="text/css" />
+
+<div class="full-page">
+  <div class="medical-box">
+    <h1>Welcome to Your <strong>Medical Store</strong> Dashboard</h1>
+
+    {% if data %}
+      {% if photo == 'no' %}
+        <p><button onclick="location.href='medicalphoto'">Upload Photo</button></p>
+      {% else %}
+        <img src="../static/images/{{ photo }}" width="100" height="100" alt="Medical Store Photo" class="store-photo" />
+        <p><button onclick="location.href='change_medicalphoto'">Change Photo</button></p>
+      {% endif %}
+
+      <h3>{{ data[0] }}</h3>
+
+      <dl class="info-list">
+        <dt>Owner Name</dt>
+        <dd>{{ data[1] }}</dd>
+
+        <dt>Address</dt>
+        <dd>{{ data[2] }}</dd>
+
+        <dt>Contact Number</dt>
+        <dd>{{ data[3] }}</dd>
+
+        <dt>Licence Number</dt>
+        <dd>{{ data[4] }}</dd>
+
+        <dt>Email Address</dt>
+        <dd>{{ data[5] }}</dd>
+      </dl>
+
+      <button onclick="location.href='medical_profile'" class="edit-btn">Edit Details</button>
+
+    {% elif msg %}
+      <h3 class="error-msg">{{ msg }}</h3>
+
+    {% else %}
+      <p>No medical store details available at the moment.</p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

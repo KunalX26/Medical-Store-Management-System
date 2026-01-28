@@ -1,0 +1,150 @@
+/*
+ * AuthError.css - Non-scrollable styled page for unauthorized access.
+ * Consistent with DeleteMedicine1.css — red warning theme.
+ */
+
+/* --------------------
+   1. Base Layout
+   -------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* ❌ Prevent scrolling */
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #fff5f5, #ffeaea);
+    color: #333;
+}
+
+/* Full-page container */
+.full-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* --------------------
+   2. Error Box
+   -------------------- */
+.auth-error-box {
+    background: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    padding: 45px 50px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f5c6c6;
+    animation: fade-in 0.8s ease-out;
+}
+
+/* --------------------
+   3. Warning Icon
+   -------------------- */
+.error-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #d32f2f;
+    text-shadow: 0 3px 8px rgba(211, 47, 47, 0.3);
+    animation: pulse 1.6s infinite ease-in-out;
+}
+
+/* --------------------
+   4. Headings
+   -------------------- */
+.auth-error-box h1 {
+    font-size: 2.3rem;
+    color: #b71c1c;
+    font-weight: 800;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #e53935;
+    padding-bottom: 12px;
+}
+
+.auth-error-box h2 {
+    font-size: 1.2rem;
+    color: #444;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+
+/* --------------------
+   5. Button Styling
+   -------------------- */
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-btn {
+    background-color: #c62828;
+    color: white;
+    padding: 12px 34px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(198, 40, 40, 0.35);
+}
+
+/* --------------------
+   6. Animations
+   -------------------- */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* --------------------
+   7. Responsive
+   -------------------- */
+@media (max-width: 600px) {
+    .auth-error-box {
+        padding: 30px 25px;
+        border-radius: 12px;
+    }
+
+    .error-icon {
+        font-size: 3.5rem;
+    }
+
+    .auth-error-box h1 {
+        font-size: 1.9rem;
+    }
+
+    .auth-error-box h2 {
+        font-size: 1rem;
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}

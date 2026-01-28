@@ -1,0 +1,86 @@
+{% extends 'WelcomeTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/Welcome.css" rel="stylesheet" type="text/css" />
+
+<!-- =========================
+     Search Section
+========================= -->
+<div class="search-section">
+    <form method="post" action="/">
+        <label for="Txt1" class="visually-hidden">Medicine</label>
+        {% if data or msg %}
+            <input value="{{mname}}" type="text" id="Txt1" name="T1" placeholder="Enter medicine name..." required />
+        {% else %}
+        <input type="text" id="Txt2" name="T1" placeholder="Enter medicine name..." required />
+        {% endif %}
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<!-- =========================
+     Results Section
+========================= -->
+{% if data %}
+    <div class="results-container">
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Store Details</th>
+                    <th>Medicine Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in data %}
+                <tr>
+                    <!-- Store Info -->
+                    <td>
+                        <p class="store-name">Store Name: {{ d[0] }}</p>
+                        <p class="details">
+                            <b>Address:</b> {{ d[2] }}<br/>
+                            <b>Contact:</b> {{ d[3] }}
+                        </p>
+                    </td>
+
+                    <!-- Medicine Info -->
+                    <td>
+                        <p class="medicine-name">Medicine Name: {{ d[6] }}</p>
+                        <p class="details">
+                            <b>Medicine Price:</b> {{ d[10] }}<br/>
+                            <b>Medicine Description:</b> {{ d[11] }}
+                        </p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% elif msg %}
+    <div class="message">
+        <h2>{{ msg }}</h2>
+    </div>
+{% endif %}
+
+<!-- =========================
+     Hero Section
+========================= -->
+<div class="hero">
+    <h1>
+        Welcome to <span style="color: #009688;">MediMap</span>
+    </h1>
+
+    <p>
+        Your trusted companion for discovering nearby medical stores and essential medicines.
+    </p>
+
+    <p>
+        With <strong>MediMap</strong>, you can quickly locate pharmacies and check real-time medicine availability — all in one place.
+    </p>
+
+    <p>
+        Our mission is to make healthcare more <strong>accessible</strong>, <strong>reliable</strong>, and <strong>convenient</strong> for everyone.
+    </p>
+</div>
+
+{% endblock %}

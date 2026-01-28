@@ -1,0 +1,22 @@
+{% extends 'MedicalStoresTemp.html' %}
+{% block m1 %}
+<link href="../static/css/MedicalStores.css" rel="stylesheet" type="text/css" />
+
+<div class="container">
+    <h1>Registered Medical Stores</h1>
+
+    {% if vgt %}
+        {% for d in vgt %}
+        <div class="store-card">
+            <h3>{{ d.0 }}</h3>
+            <p><strong>Owner:</strong> {{ d.1 }} <br>
+            <strong>Address:</strong> {{ d.2 }} <br>
+            <strong>Contact:</strong> {{ d.3 }} <br>
+            <strong>Email:</strong> {{ d.5 }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align:center; color:#ccc; margin-top: 40px;">No registered medical stores found.</p>
+    {% endif %}
+</div>
+{% endblock %}

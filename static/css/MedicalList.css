@@ -1,0 +1,209 @@
+/*
+ * MedicalList.css - Professional styling for the Medical List page.
+ * Mirrors AdminList.css with teal-green tones and smooth animations.
+ */
+
+/* --------------------
+   0. Animations
+   -------------------- */
+@keyframes fade-in-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   1. Global & Header
+   -------------------- */
+body, html {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f7f9fc;
+
+    /* Hide scrollbar but keep scrolling functional */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: scroll; /* Ensure vertical scroll works */
+}
+
+/* Hide scrollbar in WebKit browsers (Chrome, Safari, Opera) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: #1f3a4e;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid #00796B; /* Teal accent for medical */
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.medical-list-container {
+    padding: 20px 2%;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1300px;
+}
+
+/* --------------------
+   2. Individual Medical Card Styling
+   -------------------- */
+.medical-record {
+    display: inline-block;
+    vertical-align: top;
+
+    width: 48%;
+    max-width: 550px;
+    margin: 15px 1%;
+
+    text-align: left;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 16px;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eee;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.4s;
+
+    animation: fade-in-slide-up 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    opacity: 0;
+    animation-delay: calc(var(--animation-order) * 0.1s);
+}
+
+.medical-record:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Heading */
+.medical-record h3 {
+    font-size: 1.45rem;
+    color: #1f3a4e;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.medical-record h3 u {
+    text-decoration: none;
+}
+
+/* Paragraphs */
+.medical-record p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 2.0;
+    margin: 0;
+}
+
+/* Labels */
+.medical-record b {
+    color: #777;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 100px;
+    margin-right: 5px;
+}
+
+/* --------------------
+   3. Buttons
+   -------------------- */
+.button-group {
+    margin-top: 20px;
+    display: block;
+}
+
+.button-group form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.edit-btn {
+    background-color: #00796B;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.3);
+}
+
+.edit-btn:hover {
+    background-color: #00695C;
+    box-shadow: 0 6px 18px rgba(0, 121, 107, 0.5);
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background-color: #C0392B;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
+}
+
+.delete-btn:hover {
+    background-color: #A93226;
+    box-shadow: 0 6px 18px rgba(192, 57, 43, 0.5);
+    transform: translateY(-2px);
+}
+
+/* No records found */
+.medical-list-container > h3 {
+    text-align: center;
+    color: #999;
+    margin-top: 50px;
+    font-size: 1.2rem;
+}
+
+/* --------------------
+   4. Responsiveness
+   -------------------- */
+@media (max-width: 950px) {
+    .medical-record {
+        width: 90%;
+        margin: 20px auto;
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+        margin-top: 25px;
+        margin-bottom: 35px;
+    }
+    .medical-record {
+        padding: 20px;
+        border-radius: 10px;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+    button {
+        width: 100%;
+        margin-top: 8px;
+    }
+}

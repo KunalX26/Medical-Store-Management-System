@@ -1,0 +1,199 @@
+/*
+ * MedicalReg.css - Professional styling for the Medical Registration page.
+ * Mirrors AdminReg.css for consistency across admin and medical portals.
+ * Uses a centered card layout with smooth animation (no Flexbox).
+ */
+
+/* --------------------
+   0. Animations
+   -------------------- */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translate(-50%, calc(-45% + 20px));
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -25%);
+    }
+}
+
+/* --------------------
+   1. Full Page Container
+   -------------------- */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f0f4f7, #ffffff);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+
+    /* Hide scrollbar but keep scrolling enabled */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: scroll; /* allow vertical scroll */
+}
+
+/* Hide scrollbar in WebKit browsers (Chrome, Safari, Opera) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.registration-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+    margin: 0;
+
+    text-align: left;
+    padding: 40px;
+    background: linear-gradient(to bottom right, #ffffff 98%, #fcfcfc 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 5px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+
+    animation: fade-in-up 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) 0.2s forwards;
+    opacity: 0;
+}
+
+div[class="container-fluid "] {
+    text-align: center;
+}
+
+/* --------------------
+   2. Typography & Content
+   -------------------- */
+.registration-container h1 {
+    font-size: 2.2rem;
+    color: #1f3a4e;
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #00796B; /* teal tone for medical */
+    padding-bottom: 15px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.registration-container p {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.registration-container p a {
+    color: #00796B;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.registration-container p a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------
+   3. Form Elements
+   -------------------- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:hover {
+    border-color: #bbb;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #00796B;
+    box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.2);
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #00796B;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 121, 107, 0.3);
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #00695C;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 121, 107, 0.5);
+}
+
+input[type="submit"]:active {
+    background-color: #005B4F;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Error Message Styling */
+.error-message {
+    text-align: left;
+    color: #C0392B;
+    font-size: 0.9em;
+    display: block;
+    margin-top: 4px;
+}
+
+/* --------------------
+   4. Responsiveness
+   -------------------- */
+@media (max-width: 550px) {
+    .registration-container {
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+
+        max-width: none;
+        padding: 25px;
+        border-radius: 0;
+        margin: 5vh auto 0 auto;
+    }
+    .registration-container h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+}

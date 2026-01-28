@@ -1,0 +1,77 @@
+{% extends 'ChangePassMedicalTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/ChangePassMedical.css" rel="stylesheet" type="text/css" />
+
+<div class="full-page">
+    <div class="change-pass-box">
+        <h1>Change Password</h1>
+
+        <form id="changePassForm" method="post" action="change_pass_medical">
+            <p>Current Password
+                <input type="password" name="T1" id="Txt1" required />
+                <small class="error-message" id="currentError"></small>
+            </p>
+            <p>New Password
+                <input type="password" name="T2" id="Txt2" required />
+                <small class="error-message" id="newError"></small>
+            </p>
+            <p>Confirm Password
+                <input type="password" name="T3" id="Txt3" required />
+                <small class="error-message" id="confirmError"></small>
+            </p>
+
+            <div class="button-container">
+                <button type="submit" id="btn1">Change Password</button>
+            </div>
+        </form>
+
+        {% if msg %}
+        <h3 class="message">{{msg}}</h3>
+        {% endif %}
+
+        <div class="home-button-container">
+            <a href="medicalhome">
+                <button type="button" class="home-btn">Home</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ JavaScript Validation -->
+<script>
+document.getElementById("changePassForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Stop form submission initially
+
+    // Clear previous errors
+    document.querySelectorAll(".error-message").forEach(el => el.textContent = "");
+
+    let isValid = true;
+
+    const currentPass = document.getElementById("Txt1").value.trim();
+    const newPass = document.getElementById("Txt2").value.trim();
+    const confirmPass = document.getElementById("Txt3").value.trim();
+
+    // ⚠️ Replace this value with actual validation (from DB/session on backend)
+    const actualCurrentPassword = "12345";
+
+    // New password check
+    if (newPass.length < 6) {
+        document.getElementById("newError").textContent = "New password must be at least 6 characters.";
+        isValid = false;
+    }
+
+    // Confirm password check
+    if (confirmPass !== newPass) {
+        document.getElementById("confirmError").textContent = "Passwords do not match.";
+        isValid = false;
+    }
+
+    // Submit if valid
+    if (isValid) {
+        this.submit();
+    }
+});
+</script>
+
+{% endblock %}

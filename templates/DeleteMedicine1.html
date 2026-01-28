@@ -1,0 +1,22 @@
+{% extends 'DeleteMedicine1Temp.html' %}
+{% block m1 %}
+
+<link href="../static/css/DeleteMedicine1.css" rel="stylesheet" type="text/css" />
+
+<div class="full-page">
+    <div class="delete-confirm-box">
+        <h1>Delete Medicine Data</h1>
+
+        {% if msg %}
+        <h2 class="message">{{msg}}</h2>
+        {% endif %}
+
+        <div class="button-container">
+            <a href="show_medicines">
+                <button type="button" class="continue-btn">Continue</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

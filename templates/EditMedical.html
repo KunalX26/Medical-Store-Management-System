@@ -1,0 +1,125 @@
+{% extends 'EditMedicalTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/EditMedical.css" rel="stylesheet" type="text/css" />
+
+<h1>Edit & Save</h1>
+
+{% if vgt %}
+<form id="editForm" method="post" action="edit_medical1">
+    <p>
+        <label>Medical Name</label>
+        <input type="text" name="T1" id="medicalName" value="{{ vgt.0 }}" />
+        <small class="error-message" id="medicalNameError"></small>
+    </p>
+
+    <p>
+        <label>Owner Name</label>
+        <input type="text" name="T2" id="ownerName" value="{{ vgt.1 }}" />
+        <small class="error-message" id="ownerNameError"></small>
+    </p>
+
+    <p>
+        <label>Address</label>
+        <input type="text" name="T3" id="address" value="{{ vgt.2 }}" />
+    </p>
+
+    <p>
+        <label>Contact</label>
+        <input type="text" name="T4" id="contact" value="{{ vgt.3 }}" />
+        <small class="error-message" id="contactError"></small>
+    </p>
+
+    <p>
+        <label>Licence No.</label>
+        <input type="text" name="T5" id="licence" value="{{ vgt.4 }}" />
+    </p>
+
+    <p>
+        <label>Email</label>
+        <input type="text" name="T6" id="email" value="{{ vgt.5 }}" readonly />
+    </p>
+
+    <p style="text-align:center;">
+        <button type="submit">Save Changes</button>
+    </p>
+</form>
+{% endif %}
+
+<h3 style="text-align:center;">
+    <a href="show_medicals">
+        <button type="button">Back</button>
+    </a>
+</h3>
+
+<style>
+/* Inline CSS for validation messages */
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+}
+label {
+    display: inline-block;
+    width: 130px;
+    font-weight: 600;
+    color: #444;
+}
+input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 60%;
+}
+input:focus {
+    border-color: #009688;
+    box-shadow: 0 0 6px rgba(0,150,136,0.3);
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("editForm");
+
+    form.addEventListener("submit", function(e) {
+        let valid = true;
+
+        // Clear previous error messages
+        document.querySelectorAll(".error-message").forEach(el => el.textContent = "");
+
+        // Get input values
+        const medicalName = document.getElementById("medicalName").value.trim();
+        const ownerName = document.getElementById("ownerName").value.trim();
+        const contact = document.getElementById("contact").value.trim();
+
+        // Validation patterns
+        const medicalPattern = /^[A-Za-z0-9\s]+$/;  // Letters, numbers, spaces
+        const ownerPattern = /^[A-Za-z\s]+$/;       // Only letters and spaces
+        const contactPattern = /^[6-9]\d{9}$/;      // Indian 10-digit mobile number
+
+        // Validate Medical Name
+        if (!medicalPattern.test(medicalName)) {
+            document.getElementById("medicalNameError").textContent = "Enter a valid medical name (letters, numbers, spaces only)";
+            valid = false;
+        }
+
+        // Validate Owner Name
+        if (!ownerPattern.test(ownerName)) {
+            document.getElementById("ownerNameError").textContent = "Enter a valid owner name (letters only)";
+            valid = false;
+        }
+
+        // Validate Contact Number
+        if (!contactPattern.test(contact)) {
+            document.getElementById("contactError").textContent = "Enter a valid 10-digit contact number";
+            valid = false;
+        }
+
+        // Stop form submission if invalid
+        if (!valid) e.preventDefault();
+    });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,205 @@
+/*
+ * LoginForm.css - Clean, centered, non-scrollable login page styling.
+ * Matches your Admin and Medical portal design language.
+ */
+
+/* --------------------
+   1. Base Styles
+   -------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars */
+    background: linear-gradient(135deg, #f0f4f7, #ffffff);
+    color: #333;
+    line-height: 1.7;
+}
+
+/* --------------------
+   2. Full Page Centering
+   -------------------- */
+.full-page {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* --------------------
+   3. Login Box
+   -------------------- */
+.login-box {
+    background-color: #ffffff;
+    padding: 45px 30px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    animation: fade-in-up 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    margin-bottom: 100px;
+
+}
+
+/* --------------------
+   4. Headings
+   -------------------- */
+.login-box h1 {
+    font-size: 2.2rem;
+    color: #1f3a4e;
+    font-weight: 800;
+    border-bottom: 3px solid #009688;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+/* --------------------
+   5. Info Text
+   -------------------- */
+.note {
+    color: #555;
+    font-size: 0.95rem;
+    background: #e0f2f1;
+    border: 1px solid #b2dfdb;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+/* --------------------
+   6. Form Elements
+   -------------------- */
+form p {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+    font-weight: 600;
+    color: #444;
+}
+
+input {
+    width: calc(100% - 110px);
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #009688;
+    box-shadow: 0 0 6px rgba(0,150,136,0.3);
+    outline: none;
+}
+
+/* --------------------
+   7. Error & Server Messages
+   -------------------- */
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+}
+
+.server-message {
+    margin-top: 20px;
+    color: #d32f2f;
+    font-weight: 600;
+}
+
+/* --------------------
+   8. Buttons
+   -------------------- */
+button {
+    background-color: #009688;
+    color: #ffffff;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #007a6e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 150, 136, 0.4);
+}
+
+button:active {
+    background-color: #00695C;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------
+   9. Animation
+   -------------------- */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   10. Responsiveness
+   -------------------- */
+@media (max-width: 600px) {
+    .login-box {
+        padding: 30px 20px;
+        width: 90%;
+        border-radius: 12px;
+    }
+
+    .login-box h1 {
+        font-size: 1.8rem;
+    }
+
+    label {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* -------------------- Footer -------------------- */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2a9ed7;
+    color: #fff;
+    text-align: center;
+    padding: 12px 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}

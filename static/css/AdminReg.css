@@ -1,0 +1,214 @@
+/*
+ * AdminReg.css - Professional styling for the Admin Registration page.
+ * Uses a centered card layout with smooth animation, following the established aesthetic (no Flexbox).
+ */
+
+/* --------------------
+   0. Animations
+   -------------------- */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        /* Start 20px below the final position: calc(-45% + 20px) */
+        transform: translate(-50%, calc(-45% + 20px));
+    }
+    to {
+        opacity: 1;
+        /* *** MODIFIED: Shifted down by changing -50% to -45% *** */
+        transform: translate(-50%, -37%);
+    }
+}
+
+/* --------------------
+   1. Full Page Container
+   -------------------- */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /* Soft background from Login.css */
+    background: linear-gradient(135deg, #f0f4f7, #ffffff);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+
+    /* Hide scrollbar but allow scroll */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: scroll; /* keeps scrolling functional */
+}
+
+/* Hide scrollbar in WebKit browsers (Chrome, Safari, Opera) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.registration-container {
+    /* *** MODIFIED: Perfect Centering Logic (Non-Flexbox) *** */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Initial transform property is set by the @keyframes, we only define its size here. */
+
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+
+    /* Removed margin: 15vh auto 5vh auto; which is replaced by position:absolute */
+    margin: 0;
+
+    /* Card Appearance */
+    text-align: left;
+    padding: 40px;
+    background: linear-gradient(to bottom right, #ffffff 98%, #fcfcfc 100%);
+    border-radius: 20px;
+
+    /* Refined Shadow: more diffuse and subtle */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 5px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+
+    /* Animation on load */
+    animation: fade-in-up 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) 0.2s forwards;
+    opacity: 0;
+}
+
+/* To center the card horizontally within its parent block */
+/* This rule is now redundant due to position:absolute, but kept for legacy structure support */
+div[class="container-fluid "] {
+    text-align: center;
+}
+
+
+/* --------------------
+   2. Typography & Content
+   -------------------- */
+.registration-container h1 {
+    font-size: 2.2rem;
+    color: #1f3a4e;
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #009688;
+    padding-bottom: 15px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.registration-container p {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.registration-container p a {
+    color: #009688;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.registration-container p a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------
+   3. Form Elements
+   -------------------- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Input Hover and Focus States */
+.form-group input:hover {
+    border-color: #bbb;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #009688;
+    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.2);
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #009688;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 150, 136, 0.3);
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #007a6e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 150, 136, 0.5);
+}
+
+input[type="submit"]:active {
+    background-color: #006b61;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Error Message Styling (copied from HTML for consistency) */
+.error-message {
+    text-align: left;
+    color: #C0392B; /* Deep professional red */
+    font-size: 0.9em;
+    display: block;
+    margin-top: 4px;
+}
+
+/* --------------------
+   4. Responsiveness
+   -------------------- */
+@media (max-width: 550px) {
+    .registration-container {
+        /* *** MODIFIED: Revert to natural flow on mobile for better scrolling *** */
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none; /* Reset transform on mobile */
+
+        max-width: none;
+        padding: 25px;
+        border-radius: 0; /* Full width edge-to-edge on mobile */
+        margin: 5vh auto 0 auto; /* Use simple top margin on mobile */
+    }
+    .registration-container h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+}

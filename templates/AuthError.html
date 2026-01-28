@@ -1,0 +1,22 @@
+{% extends 'AuthErrorTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/AuthError.css" rel="stylesheet" type="text/css" />
+
+<div class="full-page">
+    <div class="auth-error-box">
+        <!-- ⚠️ Warning Icon -->
+        <div class="error-icon">⚠️</div>
+
+        <h1>Authorization Error</h1>
+        <h2>You are not the authorized user</h2>
+
+        <div class="button-container">
+            <a href="login">
+                <button type="button" class="login-btn">Go To Login</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'MedicineListTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/MedicineList.css" rel="stylesheet" type="text/css" />
+
+<h1>Medicines Data</h1>
+
+<div class="medical-list-container">
+{% if vgt %}
+    {% for d in vgt %}
+        <div class="medical-record">
+            <h3>{{d[1]}}</h3>
+            <p>
+                <b>Type</b> : {{d[2]}} <br/>
+                <b>Company</b> : {{d[3]}} <br/>
+                <b>Licence No.</b> : {{d[4]}} <br/>
+                <b>Unit Price (₹)</b> : {{d[5]}} <br/>
+                <b>Description</b> : {{d[6]}}
+            </p>
+            <div class="button-group">
+                <form method="post" action="edit_medicine">
+                    <input type="hidden" value="{{d[0]}}" name="H1" />
+                    <button type="submit" class="edit-btn">Edit</button>
+                </form>
+                <form method="post" action="delete_medicine">
+                    <input type="hidden" value="{{d[0]}}" name="H1" />
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% else %}
+    <p style="text-align:center; color:#90a4ae; margin-top:20px;">No medicines available.</p>
+{% endif %}
+</div>
+
+
+<div class="back-button-container">
+    <a href="medicalhome">
+        <button class="back-btn">Back</button>
+    </a>
+</div>
+
+{% endblock %}

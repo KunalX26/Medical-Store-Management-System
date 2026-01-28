@@ -1,0 +1,107 @@
+{% extends 'MedicalProfileTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/MedicalHome.css" rel="stylesheet" type="text/css" />
+
+<div class="full-page">
+    <div class="profile-box">
+        <h1>My Profile</h1>
+
+        {% if data %}
+        <form id="medicalProfileForm" method="post" action="medical_profile">
+            <p>Medical Name:
+                <input type="text" id="medicalName" value="{{data[0]}}" name="T1" />
+                <small class="error-message" id="medicalNameError"></small>
+            </p>
+            <p>Owner Name:
+                <input type="text" id="ownerName" value="{{data[1]}}" name="T2" />
+                <small class="error-message" id="ownerNameError"></small>
+            </p>
+            <p>Address:
+                <input type="text" value="{{data[2]}}" name="T3" />
+            </p>
+            <p>Contact:
+                <input type="text" id="contactNumber" value="{{data[3]}}" name="T4" />
+                <small class="error-message" id="contactError"></small>
+            </p>
+            <p>Licence No.:
+                <input type="text" value="{{data[4]}}" name="T5" />
+            </p>
+            <p>Email:
+                <input readonly type="text" value="{{data[5]}}" name="T6" />
+            </p>
+
+            <!-- ✅ Centered Save Button -->
+            <div class="save-button-container">
+                <button type="submit" class="save-btn">Save Changes</button>
+            </div>
+        </form>
+        {% elif msg %}
+        <h3 class="error-msg">{{msg}}</h3>
+        {% endif %}
+
+        <div class="home-button-container">
+            <a href="medicalhome">
+                <button type="button" class="home-btn">Home</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ JavaScript Validation -->
+<script>
+document.getElementById("medicalProfileForm").addEventListener("submit", function(e) {
+    let valid = true;
+
+    // Reset previous error messages
+    document.querySelectorAll(".error-message").forEach(el => el.textContent = "");
+
+    const namePattern = /^[A-Za-z\s]+$/;
+    const contactPattern = /^[0-9]{10}$/;
+
+    // Medical Name validation
+    const medName = document.getElementById("medicalName").value.trim();
+    if (medName === "") {
+        document.getElementById("medicalNameError").textContent = "Medical name cannot be empty.";
+        valid = false;
+    } else if (!namePattern.test(medName)) {
+        document.getElementById("medicalNameError").textContent = "Only letters and spaces are allowed.";
+        valid = false;
+    }
+
+    // Owner Name validation
+    const ownerName = document.getElementById("ownerName").value.trim();
+    if (ownerName === "") {
+        document.getElementById("ownerNameError").textContent = "Owner name cannot be empty.";
+        valid = false;
+    } else if (!namePattern.test(ownerName)) {
+        document.getElementById("ownerNameError").textContent = "Only letters and spaces are allowed.";
+        valid = false;
+    }
+
+    // Contact validation
+    const contact = document.getElementById("contactNumber").value.trim();
+    if (contact === "") {
+        document.getElementById("contactError").textContent = "Contact number cannot be empty.";
+        valid = false;
+    } else if (!contactPattern.test(contact)) {
+        document.getElementById("contactError").textContent = "Enter a valid 10-digit contact number.";
+        valid = false;
+    }
+
+    if (!valid) {
+        e.preventDefault(); // Stop form from submitting
+    }
+});
+</script>
+
+<style>
+.error-message {
+    color: #e53935;
+    font-size: 0.9em;
+    margin-top: 3px;
+    display: block;
+}
+</style>
+
+{% endblock %}

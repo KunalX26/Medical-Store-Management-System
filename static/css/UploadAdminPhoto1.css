@@ -1,0 +1,138 @@
+/* ==========================================
+   Upload Admin Photo - Success Page
+   File: UploadPhoto1.css
+   Clean, modern & responsive styling
+   ========================================== */
+
+/* --------------------
+   1. Base Reset
+   -------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e6f4f1, #f5f9fb);
+    color: #2c3e50;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* --------------------
+   2. Container
+   -------------------- */
+.container {
+    width: 90%;
+    max-width: 450px;
+    background: #ffffff;
+    margin: 80px auto 0 auto;
+    padding: 50px 50px 60px;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    animation: fade-in 0.6s ease-out;
+}
+
+/* --------------------
+   3. Headings
+   -------------------- */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f3a4e;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #009688;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #00796B;
+    font-weight: 600;
+    margin: 25px 0 35px;
+    letter-spacing: 0.3px;
+}
+
+/* --------------------
+   4. Button & Link
+   -------------------- */
+button {
+    background-color: #009688;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #00796B;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 150, 136, 0.3);
+}
+
+button:active {
+    background-color: #00695C;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the anchor inside button */
+button a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    display: inline-block;
+}
+
+button a:hover {
+    text-decoration: none;
+}
+
+/* --------------------
+   5. Animation
+   -------------------- */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   6. Responsiveness
+   -------------------- */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    button a {
+        font-size: 1rem;
+    }
+}

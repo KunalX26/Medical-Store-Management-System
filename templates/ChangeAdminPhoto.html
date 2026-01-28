@@ -1,0 +1,16 @@
+{% extends 'ChangeAdminPhotoTemp.html'%}
+{% block h1 %}
+Change Admin Photo
+{% endblock %}
+{% block m1 %}
+<link href="../static/css/ChangeAdminPhoto.css" rel="stylesheet" type="text/css">
+  <h1>Photo Delete</h1>
+<div class="container">
+{% if data == 'success' %}
+    <h3 class="success">Photo Deleted</h3>
+{% else %}
+    <h3 class="error">Error: Cannot Delete File</h3>
+{% endif %}
+<button><a href="adminhome">Continue</a></button>
+</div>
+{% endblock %}

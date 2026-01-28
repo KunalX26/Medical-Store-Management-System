@@ -1,0 +1,39 @@
+{% extends 'MedicalListTemp.html' %}
+{% block m1 %}
+
+<link href="../static/css/MedicalList.css" rel="stylesheet" type="text/css" />
+
+<h1>Medical Stores</h1>
+
+<div class="medical-list-container">
+    {% if vgt %}
+        {% for d in vgt %}
+        <div class="medical-record">
+            <h3><u>{{ d.0 }}</u></h3>
+            <p>
+                <b>Owner Name:</b> {{ d.1 }} <br/>
+                <b>Address:</b> {{ d.2 }} <br/>
+                <b>Contact:</b> {{ d.3 }} <br/>
+                <b>Licence No.:</b> {{ d.4 }} <br/>
+                <b>Email:</b> {{ d.5 }}
+            </p>
+
+            <div class="button-group">
+                <form method="post" action="edit_medical">
+                    <input type="hidden" name="H1" value="{{ d.5 }}">
+                    <button type="submit" class="edit-btn">Edit</button>
+                </form>
+                <form method="post" action="delete_medical">
+                    <input type="hidden" name="H1" value="{{ d.5 }}">
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+
+    {% elif msg %}
+        <h3>{{ msg }}</h3>
+    {% endif %}
+</div>
+
+{% endblock %}

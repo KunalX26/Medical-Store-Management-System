@@ -1,0 +1,126 @@
+/*
+ * DeleteMedical1.css - Confirmation styling after Medical Store deletion.
+ * Matches MedicalReg, MedicalList, EditMedical, and DeleteMedical styles.
+ * Clean, minimal success-focused design with teal and soft tones.
+ */
+
+/* --------------------
+   1. Global Styles
+   -------------------- */
+body, html {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* --------------------
+   2. Container
+   -------------------- */
+.confirmation-container {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 10vh auto;
+    padding: 50px 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eee;
+    text-align: center;
+    animation: fade-in-up 0.7s ease forwards;
+    opacity: 0;
+}
+
+/* --------------------
+   3. Headings
+   -------------------- */
+h1 {
+    color: #1f3a4e;
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #009688;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.4rem;
+    color: #00796B;
+    margin: 30px 0 40px 0;
+    font-weight: 600;
+    background-color: #e0f2f1;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #b2dfdb;
+}
+
+/* --------------------
+   4. Button
+   -------------------- */
+button {
+    background-color: #00796B;
+    color: #ffffff;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: #00695C;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 121, 107, 0.4);
+}
+
+button:active {
+    background-color: #004D40;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------
+   5. Animation
+   -------------------- */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   6. Responsiveness
+   -------------------- */
+@media (max-width: 600px) {
+    .confirmation-container {
+        margin: 5vh auto;
+        padding: 30px 20px;
+        border-radius: 10px;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}

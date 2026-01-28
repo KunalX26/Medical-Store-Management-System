@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>Medical Home</title>
+     <link rel="stylesheet" href="../static/cyborg/cyborg.css" type="text/css">
+    <script src="../static/bootstrap/js/bootstrap.bundle.js"></script>
+</head>
+<body style="margin:0; padding-top:60px;">
+        <nav class="navbar fixed-top navbar-expand-lg bg-primary" data-bs-theme="dark" style="z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+               <img src="../static/images/logo without bg 2.png" alt="MediMap Logo" height="30" style="margin-top: -5;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="medicalhome">Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Medicines</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="medicine_reg">Register</a>
+                            <a class="dropdown-item" href="show_medicines">Manage</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="change_pass_medical">Change Password</a>
+                            <a class="dropdown-item" href="logout">Logout</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="container-fluid" style=" min-height: 700px;">
+
+    {% block m1 %}
+    {% endblock %}
+</div>
+
+<div class="container-fluid black" style="height: 10px;"></div>
+
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

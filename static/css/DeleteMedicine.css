@@ -1,0 +1,158 @@
+/*
+ * DeleteMedicine.css - Elegant confirmation styling for the Delete page.
+ * Matches MedicalList.css & EditMedicine.css theme.
+ */
+
+/* --------------------
+   1. Base & Layout
+   -------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+.full-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 15px;
+    box-sizing: border-box;
+}
+
+/* --------------------
+   2. Delete Box
+   -------------------- */
+.delete-box {
+    background-color: #fff;
+    width: 100%;
+    max-width: 650px;
+    border-radius: 18px;
+    padding: 40px 45px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eee;
+    text-align: center;
+    animation: fade-in-up 0.8s ease-out;
+}
+
+/* --------------------
+   3. Header & Info
+   -------------------- */
+.delete-box h1 {
+    font-size: 2.4rem;
+    color: #b71c1c;
+    font-weight: 800;
+    margin-bottom: 30px;
+    border-bottom: 4px solid #c62828;
+    padding-bottom: 12px;
+}
+
+.medicine-info h3 {
+    color: #1f3a4e;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.medicine-info p {
+    text-align: left;
+    font-size: 1rem;
+    color: #444;
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 15px 20px;
+    line-height: 1.9;
+    border: 1px solid #eee;
+}
+
+.medicine-info b {
+    color: #555;
+    font-weight: 600;
+    min-width: 130px;
+    display: inline-block;
+}
+
+/* --------------------
+   4. Buttons
+   -------------------- */
+.delete-form {
+    margin-top: 30px;
+}
+
+.delete-btn {
+    background-color: #d32f2f;
+    color: #fff;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(211, 47, 47, 0.3);
+}
+
+/* Back Button */
+.back-button-container {
+    margin-top: 35px;
+}
+
+.back-btn {
+    background-color: #00796B;
+    color: #fff;
+    padding: 10px 26px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #00695C;
+    box-shadow: 0 6px 18px rgba(0, 121, 107, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --------------------
+   5. Animation
+   -------------------- */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   6. Responsive
+   -------------------- */
+@media (max-width: 600px) {
+    .delete-box {
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+    .delete-box h1 {
+        font-size: 1.9rem;
+    }
+    .delete-btn, .back-btn {
+        width: 100%;
+        margin-top: 10px;
+        padding: 12px;
+    }
+}

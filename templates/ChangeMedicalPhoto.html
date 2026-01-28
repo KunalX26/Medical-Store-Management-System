@@ -1,0 +1,21 @@
+{% extends 'ChangeMedicalPhotoTemp.html' %}
+{% block h1 %}
+Change Medical Photo
+{% endblock %}
+{% block m1 %}
+
+<link href="../static/css/ChangeMedicalPhoto.css" rel="stylesheet" type="text/css">
+
+<div class="container">
+    <h1>Photo Delete</h1>
+
+    {% if data == 'success' %}
+        <h3 class="success">Photo Deleted Successfully</h3>
+    {% else %}
+        <h3 class="error">Error: Unable to Delete Photo</h3>
+    {% endif %}
+
+    <button><a href="medicalhome">Continue</a></button>
+</div>
+
+{% endblock %}

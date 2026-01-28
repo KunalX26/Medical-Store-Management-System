@@ -1,0 +1,23 @@
+{% extends 'UploadMedicalPhoto1Temp.html' %}
+{% block h1 %}
+Upload Medical Photo
+{% endblock %}
+{% block m1 %}
+
+<link href="../static/css/UploadMedicalPhoto.css" rel="stylesheet" type="text/css">
+
+<div class="full-page">
+  <h1>Photo Upload</h1>
+
+  <div class="container">
+    <form method="post" action="medicalphoto1" enctype="multipart/form-data">
+
+      <label for="file-upload" class="file-label">Select a medical store photo to upload:</label>
+      <input type="file" id="file-upload" name="F1" accept="image/*" required />
+
+      <input type="submit" name="B1" value="Upload" />
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,204 @@
+/*
+ * Professional MedicalStores.css
+ * Refined for a blue-white theme (#2a9ed7 navbar)
+ * Clean typography and color contrast for medical aesthetics.
+ */
+
+/* --------------------
+   0. Animation
+   -------------------- */
+@keyframes fade-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   1. Global Styles
+   -------------------- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* pure white background */
+    font-family: 'Poppins', 'Inter', sans-serif;
+    color: #2f3a4a; /* clean charcoal gray */
+    line-height: 1.7;
+    scroll-behavior: smooth;
+
+    /* Hide scrollbar but allow scroll */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: scroll; /* Ensure scrolling still works */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+/* Make footer stay at bottom of viewport on short pages */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --------------------
+   2. Container & Title
+   -------------------- */
+main, .container {
+    flex: 1; /* Push footer to bottom */
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px 3%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Page Title */
+.container h1 {
+    font-size: 2.6rem;
+    color: #1e6fa3; /* deep medical blue */
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    border-bottom: 4px solid #2a9ed7; /* navbar blue accent */
+    padding-bottom: 10px;
+}
+
+/* Empty State Message */
+.container > p {
+    width: 100%;
+    text-align: center;
+    color: #7a8b99; /* muted gray-blue */
+    font-size: 1.2rem;
+    margin-top: 70px;
+    font-style: italic;
+}
+
+/* --------------------
+   3. Store Card Design
+   -------------------- */
+.store-card {
+    flex: 0 1 calc(48% - 10px); /* two per row */
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid #2a9ed7; /* consistent accent */
+    padding: 30px;
+    text-align: left;
+    transition: all 0.35s ease;
+    position: relative;
+    animation: fade-slide-up 0.7s ease forwards;
+    opacity: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 320px;
+}
+
+/* Accent bar before title */
+.store-card::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: #2a9ed7;
+    border-radius: 2px;
+    margin-bottom: 15px;
+}
+
+/* Hover Effect */
+.store-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* --------------------
+   4. Typography
+   -------------------- */
+.store-card h3 {
+    font-size: 1.5rem;
+    color: #1e6fa3; /* dark blue heading for readability */
+    font-weight: 700;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 8px;
+}
+
+.store-card p {
+    font-size: 1rem;
+    color: #2f3a4a; /* neutral gray-blue for main text */
+    line-height: 1.9;
+    flex-grow: 1;
+}
+
+.store-card strong {
+    color: #2a9ed7; /* navbar blue for labels */
+    font-weight: 600;
+}
+
+/* --------------------
+   5. Responsiveness
+   -------------------- */
+@media (max-width: 992px) {
+    .store-card {
+        flex: 0 1 90%; /* single column on tablets */
+        min-height: auto;
+    }
+
+    .container h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .store-card {
+        flex: 0 1 100%;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .container h1 {
+        font-size: 1.9rem;
+        border-bottom-width: 3px;
+    }
+}
+
+/* --------------------
+   6. Footer
+   -------------------- */
+.footer {
+    background-color: #2a9ed7; /* navbar blue */
+    color: #fff;
+    text-align: center;
+    padding: 16px 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    width: 100%;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.3px;
+    animation: fade-slide-up 0.8s ease;
+    border-top: 2px solid #ffffff33; /* soft white accent line */
+}
+
+/* Ensure no unwanted scroll bars due to small footer shift */
+.footer p {
+    margin: 0;
+    padding: 2px 0;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | MediMap</title>
+
+    <!-- Bootstrap & Theme -->
+    <link rel="stylesheet" href="../static/cyborg/cyborg.css" type="text/css">
+    <script src="../static/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <!-- Custom MediMap CSS -->
+    <link rel="stylesheet" href="../static/css/Welcome.css" type="text/css">
+</head>
+
+<body>
+    <!-- ✅ Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark" style="position: sticky; top: 0; z-index: 1000;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="../static/images/logo without bg 2.png" alt="MediMap Logo" height="30" style="margin-top: -5px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="medical_stores">Stores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ✅ Main Content Area -->
+    <main class="content-wrapper container-fluid">
+        {% block m1 %}
+        {% endblock %}
+    </main>
+
+    <!-- ✅ Footer -->
+    <footer class="footer">
+        <p>© {{ current_year | default(2025) }} <strong>MediMap</strong>. All rights reserved.</p>
+        <p>Making healthcare <strong>accessible</strong>, <strong>reliable</strong>, and <strong>convenient</strong>.</p>
+    </footer>
+</body>
+</html>

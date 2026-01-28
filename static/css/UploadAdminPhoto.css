@@ -1,0 +1,162 @@
+/* ==========================================
+   Upload Admin Photo Page
+   File: UploadPhoto.css
+   Modern, accessible, and responsive
+   ========================================== */
+
+/* --------------------
+   1. Base Reset
+   -------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e6f4f1, #f5f9fb);
+    color: #2c3e50;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* --------------------
+   2. Header
+   -------------------- */
+h1 {
+    margin-top: 60px;
+    font-size: 2.2rem;
+    color: #1f3a4e;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* --------------------
+   3. Form Container
+   -------------------- */
+.container {
+    width: 90%;
+    max-width: 450px;
+    background: #ffffff;
+    margin: 40px auto 0 auto;
+    padding: 40px 50px;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    animation: fade-in 0.6s ease-out;
+}
+
+/* --------------------
+   4. File Input
+   -------------------- */
+input[type="file"] {
+    display: block;
+    width: 100%;
+    margin: 25px 0 30px 0;
+    font-size: 1rem;
+    color: #444;
+    padding: 14px;
+    border: 2px dashed #b0bec5;
+    border-radius: 12px;
+    background-color: #f8fafc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover state */
+input[type="file"]:hover {
+    border-color: #009688;
+    background-color: #eef9f8;
+}
+
+/* File selector button styling */
+input[type="file"]::file-selector-button {
+    background-color: #009688;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    margin-right: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #00796B;
+    transform: translateY(-2px);
+}
+
+/* Drag-and-drop visual feedback */
+input[type="file"]:focus,
+.container.dragover input[type="file"] {
+    border-color: #00796B;
+    background-color: #e0f2f1;
+    outline: none;
+}
+
+/* --------------------
+   5. Submit Button
+   -------------------- */
+input[type="submit"] {
+    background-color: #009688;
+    color: #ffffff;
+    border: none;
+    padding: 12px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #00796B;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 150, 136, 0.3);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------
+   6. Animations
+   -------------------- */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   7. Responsive
+   -------------------- */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-top: 40px;
+    }
+
+    .container {
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+
+    input[type="file"],
+    input[type="submit"] {
+        width: 100%;
+        font-size: 0.95rem;
+    }
+
+    input[type="file"]::file-selector-button {
+        padding: 8px 16px;
+    }
+}

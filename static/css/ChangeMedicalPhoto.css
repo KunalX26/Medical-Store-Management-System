@@ -1,0 +1,160 @@
+/* ==========================================
+   Change / Delete Medical Photo Page
+   File: ChangeMedicalPhoto.css
+   Clean, modern, responsive & consistent
+   ========================================== */
+
+/* --------------------
+   1. Base Reset
+   -------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #f1f8ff);
+    color: #2c3e50;
+    text-align: center;
+    overflow-y: auto;
+    line-height: 1.6;
+}
+
+/* --------------------
+   2. Container
+   -------------------- */
+.container {
+    width: 90%;
+    max-width: 460px;
+    background: #ffffff;
+    margin: 80px auto 60px auto;
+    padding: 50px 40px 60px;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    animation: fade-in 0.6s ease-out;
+}
+
+/* --------------------
+   3. Headings
+   -------------------- */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f3a4e;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #0288d1;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin: 25px 0 40px;
+}
+
+/* --------------------
+   4. Message Colors
+   -------------------- */
+.success {
+    color: #0277bd; /* Medical blue for success */
+}
+
+.error {
+    color: #d32f2f; /* Red for errors */
+}
+
+/* --------------------
+   5. Button Styling
+   -------------------- */
+button {
+    background-color: #0288d1;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #0277bd;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(2, 119, 189, 0.3);
+}
+
+button:active {
+    background-color: #01579b;
+    transform: translateY(0);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Anchor link inside button */
+button a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    display: inline-block;
+}
+
+button a:hover {
+    text-decoration: none;
+}
+
+/* --------------------
+   6. Animations
+   -------------------- */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------
+   7. Responsive Design
+   -------------------- */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 30px 20px;
+        border-radius: 12px;
+        margin-top: 60px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+        margin: 20px 0 30px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    button a {
+        font-size: 1rem;
+    }
+}
